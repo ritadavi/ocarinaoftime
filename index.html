@@ -3,145 +3,115 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Retro Station - GBA</title>
+    <title>The Minish Cap - GBA Online</title>
+    <!-- Importação da fonte Pixel Art -->
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    
     <style>
-        /* Modern Reset and Typography */
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
         }
+
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: radial-gradient(circle, #1a1a2e 0%, #0f0f1b 100%);
-            color: #fff;
-            min-height: 100vh;
+            /* Fundo psicodélico animado estilo retrô */
+            background: linear-gradient(135deg, #0b1d12 25%, #1b4d3e 50%, #0b1d12 75%);
+            background-size: 400% 400%;
+            animation: psychedelic 12s ease infinite;
+            color: #ffffff;
+            font-family: 'Press Start 2P', monospace;
             display: flex;
             flex-direction: column;
+            align-items: center;
             justify-content: center;
-            align-items: center;
-            overflow: hidden;
+            min-height: 100vh;
+            padding: 20px;
         }
 
-        /* Neon Ambient Glow effect */
-        body::before {
-            content: '';
-            position: absolute;
-            width: 300px;
-            height: 300px;
-            background: #ff007f;
-            border-radius: 50%;
-            filter: blur(150px);
-            opacity: 0.15;
-            z-index: 0;
-            top: 10%;
-        }
-
-        /* Main Console Frame */
-        .console-wrapper {
-            position: relative;
-            z-index: 1;
-            background: linear-gradient(145deg, #252830, #17191d);
-            padding: 25px;
-            border-radius: 24px;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.5), 
-                        inset 0 2px 3px rgba(255,255,255,0.1);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            animation: fadeIn 0.8s ease-out;
-        }
-
-        /* Top Bar with Brand/Status */
-        .console-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 15px;
-            padding: 0 5px;
-        }
-        .brand-title {
-            font-size: 14px;
-            font-weight: 700;
+        h1 {
+            font-size: 20px;
+            color: #ffeb3b;
+            text-shadow: 3px 3px 0px #2e7d32, 6px 6px 0px #000;
+            margin-bottom: 25px;
+            text-align: center;
             letter-spacing: 2px;
-            text-transform: uppercase;
-            color: #00f0ff;
-            text-shadow: 0 0 8px rgba(0, 240, 255, 0.4);
-        }
-        .power-led {
-            width: 8px;
-            height: 8px;
-            background-color: #39ff14;
-            border-radius: 50%;
-            box-shadow: 0 0 8px #39ff14;
+            line-height: 1.5;
         }
 
-        /* Video Screen Container */
-        .screen-area {
-            background-color: #000;
-            border-radius: 12px;
-            overflow: hidden;
-            border: 4px solid #111;
-            box-shadow: inset 0 0 20px rgba(0,0,0,0.8);
-            width: 640px;
-            height: 480px;
-            max-width: 90vw;
-            max-height: 70vh;
+        /* Moldura estilo caixa de texto clássica de RPG retrô */
+        .game-wrapper {
+            width: 800px;
+            max-width: 100%;
+            background-color: #000000;
+            padding: 12px;
+            border: 6px solid #ffffff;
+            box-shadow: 0 0 0 6px #000000, 0 20px 40px rgba(0,0,0,0.8);
+            image-rendering: pixelated;
         }
-        #emulator {
+
+        #game-container {
+            width: 100%;
+            height: 500px;
+            background-color: #000;
+            position: relative;
+            border: 4px solid #3a3a3a;
+        }
+
+        #game {
             width: 100%;
             height: 100%;
         }
 
-        /* Quick Info Footer */
-        .console-footer {
-            margin-top: 12px;
-            text-align: center;
-            font-size: 11px;
-            color: #8a8d93;
-            letter-spacing: 1px;
+        /* Efeito de animação do fundo (ajustado para tons de verde Zelda) */
+        @keyframes psychedelic {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
 
-        /* Subtle Fade-in Animation */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+        /* Responsividade para telas menores */
+        @media (max-width: 840px) {
+            #game-container {
+                height: 400px;
+            }
+            h1 {
+                font-size: 14px;
+            }
         }
     </style>
 </head>
 <body>
 
-    <!-- Styled Console Body -->
-    <div class="console-wrapper">
-        <div class="console-header">
-            <div class="brand-title">ADVANCE STATION</div>
-            <div class="power-led" title="System Active"></div>
-        </div>
-        
-        <div class="screen-area">
-            <div id="emulator"></div>
-        </div>
+    <h1>THE MINISH CAP</h1>
 
-        <div class="console-footer">
-            PRESS START TO PLAY • POWERED BY EMULATORJS
+    <div class="game-wrapper">
+        <div id="game-container">
+            <div id="game"></div>
         </div>
     </div>
 
-    <!-- EmulatorJS Implementation Configuration -->
-    <script>
-        // Place your game file name here
-        const NOME_DO_ARQUIVO_JOGO = "seu-jogo.gba"; 
+    <script type="text/javascript">
+        // Nome exato do arquivo que você enviou
+        const NOME_DO_SEU_ARQUIVO = "Legend of Zelda, The - The Minish Cap (USA).gba"; 
 
-        EJS_player = "#emulator";
-        EJS_core = "gba"; 
-        EJS_gameUrl = NOME_DO_ARQUIVO_JOGO; 
-        EJS_pathtodata = "https://jsdelivr.net";
+        EJS_player = '#game';
+        EJS_core = 'gba'; 
+        EJS_gameName = 'The Legend of Zelda: The Minish Cap';
+        EJS_color = '#2e7d32'; // Verde temático do Link
+        EJS_startOnLoaded = false;
         
-        // Custom UI configurations for EmulatorJS
-        EJS_startOnLoaded = false; // Shows a neat splash image before running
-        EJS_Color = "#00f0ff";     // Matches the theme with neon blue elements inside the player
+        // Servidor CDN atualizado e estável
+        EJS_pathtodata = 'https://jsdelivr.net';
+        EJS_gameUrl = NOME_DO_SEU_ARQUIVO; 
+        
+        // Mantém os saves guardados no navegador do jogador
+        EJS_defaultSettings = {
+            'save-state-location': 'browser'
+        };
     </script>
-
-    <!-- Main Loader Core -->
     <script src="https://jsdelivr.netloader.js"></script>
-
 </body>
 </html>
