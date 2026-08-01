@@ -85,13 +85,16 @@
     <script type="text/javascript">
         EJS_player = '#game';
         EJS_core = 'gba'; 
-        EJS_gameName = 'The Minish Cap'; // Nome do jogo refinado para a interface do emulador
+        EJS_gameName = 'The Minish Cap'; 
         EJS_color = '#0a2f1d'; 
         EJS_startOnLoaded = false;
         EJS_pathtodata = 'https://emulatorjs.org';
         
-        // Nome exato do arquivo atualizado para o repositório do GitHub
-        EJS_gameUrl = 'Legend of Zelda, The - The Minish Cap (USA).gba'; 
+        /* 
+           Substituídos os espaços por %20 e a vírgula por %2C 
+           Isso garante que o GitHub Pages encontre o arquivo sem quebrar a URL.
+        */
+        EJS_gameUrl = 'Legend%20of%20Zelda%2C%20The%20-%20The%20Minish%20Cap%20(USA).gba'; 
         
         EJS_cacheUrl = true;
         EJS_defaultSettings = {
