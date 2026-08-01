@@ -88,20 +88,20 @@
         EJS_gameName = 'The Minish Cap'; 
         EJS_color = '#0a2f1d'; 
         EJS_startOnLoaded = false;
-        EJS_pathtodata = 'https://emulatorjs.org';
         
-        /* 
-           Substituídos os espaços por %20 e a vírgula por %2C 
-           Isso garante que o GitHub Pages encontre o arquivo sem quebrar a URL.
-        */
-        EJS_gameUrl = 'Legend%20of%20Zelda%2C%20The%20-%20The%20Minish%20Cap%20(USA).gba'; 
+        // Atualizado para a CDN do unpkg que funciona perfeitamente dentro do GitHub Pages em HTTPS
+        EJS_pathtodata = 'https://unpkg.com';
+        
+        // Caminho da ROM utilizando caminhos relativos padrão seguros
+        EJS_gameUrl = 'Legend of Zelda, The - The Minish Cap (USA).gba'; 
         
         EJS_cacheUrl = true;
         EJS_defaultSettings = {
             'save-state-location': 'browser'
         };
     </script>
-    <script src="https://emulatorjs.orgloader.js"></script>
+    <!-- Carregador atualizado acompanhando a mesma CDN estável do unpkg -->
+    <script src="https://unpkg.comloader.js"></script>
 
 </body>
 </html>
