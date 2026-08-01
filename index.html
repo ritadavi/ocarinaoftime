@@ -3,24 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Minish Cap - GBA Online</title>
-    <!-- Importação da fonte Pixel Art -->
-    <link rel="preconnect" href="https://googleapis.com">
-    <link rel="preconnect" href="https://gstatic.com" crossorigin>
-    <link href="https://googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-    
+    <title>Zelda Online</title>
+    <!-- Importação de fonte Pixel Art -->
+    <link href="https://googleapis.com" rel="stylesheet">
     <style>
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
         }
-
         body {
-            /* Fundo psicodélico animado em tons verde-floresta e dourado Zelda */
-            background: linear-gradient(135deg, #05140b 25%, #0f361d 50%, #2d5a27 75%, #05140b 100%);
+            /* Fundo degradê temático verde/floresta estilo Zelda */
+            background: linear-gradient(135deg, #0a2f1d 25%, #1b4d3e 50%, #0a2f1d 75%);
             background-size: 400% 400%;
-            animation: psychedelic 15s ease infinite;
+            animation: forestBg 12s ease infinite;
             color: #ffffff;
             font-family: 'Press Start 2P', monospace;
             display: flex;
@@ -30,62 +26,55 @@
             min-height: 100vh;
             padding: 20px;
         }
-
         h1 {
-            font-size: 22px;
-            color: #ffeb3b; /* Dourado */
-            text-shadow: 3px 3px 0px #1b5e20, 6px 6px 0px #000; /* Sombra verde escura e preta */
+            font-size: 24px;
+            color: #ffd700; /* Dourado Triforce */
+            text-shadow: 3px 3px 0px #d4a373, 6px 6px 0px #000;
             margin-bottom: 25px;
             text-align: center;
             letter-spacing: 2px;
-            line-height: 1.4;
         }
-
-        /* Moldura estilo caixa de texto clássica de RPG retrô */
+        /* Moldura para o container do jogo */
         .game-wrapper {
             width: 800px;
             max-width: 100%;
             background-color: #000000;
             padding: 12px;
-            border: 6px solid #ffffff;
-            box-shadow: 0 0 0 6px #000000, 0 20px 40px rgba(0,0,0,0.9);
+            border: 6px solid #ffd700; /* Borda dourada */
+            box-shadow: 0 0 0 6px #000000, 0 20px 40px rgba(0,0,0,0.8);
             image-rendering: pixelated;
         }
-
         #game-container {
             width: 100%;
             height: 500px;
             background-color: #000;
             position: relative;
-            border: 4px solid #2a2a2a;
+            border: 4px solid #1b4d3e;
         }
-
         #game {
             width: 100%;
             height: 100%;
         }
-
-        /* Efeito de animação fluida do fundo */
-        @keyframes psychedelic {
+        /* Animação suave do fundo */
+        @keyframes forestBg {
             0% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
             100% { background-position: 0% 50%; }
         }
-
-        /* Ajustes de tela para dispositivos menores */
+        /* Responsividade básica para telas menores */
         @media (max-width: 840px) {
             #game-container {
                 height: 400px;
             }
             h1 {
-                font-size: 14px;
+                font-size: 16px;
             }
         }
     </style>
 </head>
 <body>
 
-    <h1>THE MINISH CAP</h1>
+    <h1>ZELDA ONLINE</h1>
 
     <div class="game-wrapper">
         <div id="game-container">
@@ -94,24 +83,19 @@
     </div>
 
     <script type="text/javascript">
-        // Configurado exatamente com o novo nome simplificado que você escolheu
-        const NOME_DO_SEU_ARQUIVO = "zelda.gba"; 
-
         EJS_player = '#game';
-        EJS_core = 'gba'; 
-        EJS_gameName = 'The Legend of Zelda: The Minish Cap';
-        EJS_color = '#ffe082'; /* Interface interna do emulador combinando com o dourado */
+        EJS_core = 'gba'; // Alterado de snes para gba
+        EJS_gameName = 'Zelda'; // Nome do jogo atualizado
+        EJS_color = '#0a2f1d'; // Cor interna do emulador ajustada para verde
         EJS_startOnLoaded = false;
-        
-        // Links estáveis via CDN jSDelivr para evitar bloqueios no GitHub Pages
-        EJS_pathtodata = 'https://jsdelivr.net';
-        EJS_gameUrl = NOME_DO_SEU_ARQUIVO; 
-        
-        // Garante que o progresso salvando pelo menu do jogo fique retido no navegador
+        EJS_pathtodata = 'https://cdn.emulatorjs.org/stable/data/';
+        EJS_gameUrl = 'zelda.gba'; // Nome do arquivo atualizado para gba
+        EJS_cacheUrl = true;
         EJS_defaultSettings = {
             'save-state-location': 'browser'
         };
     </script>
-    <script src="https://jsdelivr.netloader.js"></script>
+    <script src="https://cdn.emulatorjs.org/stable/data/loader.js"></script>
+
 </body>
 </html>
