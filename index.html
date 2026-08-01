@@ -17,10 +17,10 @@
         }
 
         body {
-            /* Fundo psicodélico animado estilo retrô */
-            background: linear-gradient(135deg, #0b1d12 25%, #1b4d3e 50%, #0b1d12 75%);
+            /* Fundo psicodélico animado em tons verde-floresta e dourado Zelda */
+            background: linear-gradient(135deg, #05140b 25%, #0f361d 50%, #2d5a27 75%, #05140b 100%);
             background-size: 400% 400%;
-            animation: psychedelic 12s ease infinite;
+            animation: psychedelic 15s ease infinite;
             color: #ffffff;
             font-family: 'Press Start 2P', monospace;
             display: flex;
@@ -32,13 +32,13 @@
         }
 
         h1 {
-            font-size: 20px;
-            color: #ffeb3b;
-            text-shadow: 3px 3px 0px #2e7d32, 6px 6px 0px #000;
+            font-size: 22px;
+            color: #ffeb3b; /* Dourado */
+            text-shadow: 3px 3px 0px #1b5e20, 6px 6px 0px #000; /* Sombra verde escura e preta */
             margin-bottom: 25px;
             text-align: center;
             letter-spacing: 2px;
-            line-height: 1.5;
+            line-height: 1.4;
         }
 
         /* Moldura estilo caixa de texto clássica de RPG retrô */
@@ -48,7 +48,7 @@
             background-color: #000000;
             padding: 12px;
             border: 6px solid #ffffff;
-            box-shadow: 0 0 0 6px #000000, 0 20px 40px rgba(0,0,0,0.8);
+            box-shadow: 0 0 0 6px #000000, 0 20px 40px rgba(0,0,0,0.9);
             image-rendering: pixelated;
         }
 
@@ -57,7 +57,7 @@
             height: 500px;
             background-color: #000;
             position: relative;
-            border: 4px solid #3a3a3a;
+            border: 4px solid #2a2a2a;
         }
 
         #game {
@@ -65,14 +65,14 @@
             height: 100%;
         }
 
-        /* Efeito de animação do fundo (ajustado para tons de verde Zelda) */
+        /* Efeito de animação fluida do fundo */
         @keyframes psychedelic {
             0% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
             100% { background-position: 0% 50%; }
         }
 
-        /* Responsividade para telas menores */
+        /* Ajustes de tela para dispositivos menores */
         @media (max-width: 840px) {
             #game-container {
                 height: 400px;
@@ -94,20 +94,20 @@
     </div>
 
     <script type="text/javascript">
-        // Nome exato do arquivo que você enviou
-        const NOME_DO_SEU_ARQUIVO = "Legend of Zelda, The - The Minish Cap (USA).gba"; 
+        // Configurado exatamente com o novo nome simplificado que você escolheu
+        const NOME_DO_SEU_ARQUIVO = "zelda.gba"; 
 
         EJS_player = '#game';
         EJS_core = 'gba'; 
         EJS_gameName = 'The Legend of Zelda: The Minish Cap';
-        EJS_color = '#2e7d32'; // Verde temático do Link
+        EJS_color = '#ffe082'; /* Interface interna do emulador combinando com o dourado */
         EJS_startOnLoaded = false;
         
-        // Servidor CDN atualizado e estável
+        // Links estáveis via CDN jSDelivr para evitar bloqueios no GitHub Pages
         EJS_pathtodata = 'https://jsdelivr.net';
         EJS_gameUrl = NOME_DO_SEU_ARQUIVO; 
         
-        // Mantém os saves guardados no navegador do jogador
+        // Garante que o progresso salvando pelo menu do jogo fique retido no navegador
         EJS_defaultSettings = {
             'save-state-location': 'browser'
         };
