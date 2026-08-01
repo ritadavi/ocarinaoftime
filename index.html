@@ -82,28 +82,28 @@
         </div>
     </div>
 
-    <!-- As variáveis globais DEVEM vir antes do script do loader para não gerar tela preta -->
+    <!-- Script de inicialização limpo e compatível com servidores CDN -->
     <script type="text/javascript">
-        var EJS_player = '#game';
-        var EJS_core = 'gba'; 
-        var EJS_gameName = 'Zelda: Minish Cap'; 
-        var EJS_color = '#1b4d3e'; 
-        var EJS_startOnLoaded = false;
+        window.EJS_player = '#game';
+        window.EJS_core = 'gba'; 
+        window.EJS_gameName = 'Zelda: Minish Cap'; 
+        window.EJS_color = '#1b4d3e'; 
+        window.EJS_startOnLoaded = false;
         
-        // Caminho estável dos servidores do EmulatorJS
-        var EJS_pathtodata = 'https://emulatorjs.org';
+        // Caminho absoluto forçado via unpkg para evitar falhas de deploy local
+        window.EJS_pathtodata = 'https://unpkg.com';
         
-        // Nome simplificado e limpo sem caracteres especiais para o link não quebrar
-        var EJS_gameUrl = 'zelda.gba'; 
+        // Definição do arquivo do jogo (Certifique-se de que ele se chama 'zelda.gba' no repositório)
+        window.EJS_gameUrl = 'zelda.gba'; 
         
-        var EJS_cacheUrl = true;
-        var EJS_defaultSettings = {
+        window.EJS_cacheUrl = true;
+        window.EJS_defaultSettings = {
             'save-state-location': 'browser'
         };
     </script>
     
-    <!-- O script do loader fica obrigatoriamente por último -->
-    <script src="https://emulatorjs.orgloader.js"></script>
+    <!-- Script carregador puxado diretamente da infraestrutura estável do unpkg -->
+    <script src="https://unpkg.comloader.js"></script>
 
 </body>
 </html>
