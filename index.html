@@ -82,26 +82,28 @@
         </div>
     </div>
 
+    <!-- As variáveis globais DEVEM vir antes do script do loader para não gerar tela preta -->
     <script type="text/javascript">
-        EJS_player = '#game';
-        EJS_core = 'gba'; 
-        EJS_gameName = 'The Minish Cap'; 
-        EJS_color = '#0a2f1d'; 
-        EJS_startOnLoaded = false;
+        var EJS_player = '#game';
+        var EJS_core = 'gba'; 
+        var EJS_gameName = 'Zelda: Minish Cap'; 
+        var EJS_color = '#1b4d3e'; 
+        var EJS_startOnLoaded = false;
         
-        // Atualizado para a CDN do unpkg que funciona perfeitamente dentro do GitHub Pages em HTTPS
-        EJS_pathtodata = 'https://unpkg.com';
+        // Caminho estável dos servidores do EmulatorJS
+        var EJS_pathtodata = 'https://emulatorjs.org';
         
-        // Caminho da ROM utilizando caminhos relativos padrão seguros
-        EJS_gameUrl = 'Legend of Zelda, The - The Minish Cap (USA).gba'; 
+        // Nome simplificado e limpo sem caracteres especiais para o link não quebrar
+        var EJS_gameUrl = 'zelda.gba'; 
         
-        EJS_cacheUrl = true;
-        EJS_defaultSettings = {
+        var EJS_cacheUrl = true;
+        var EJS_defaultSettings = {
             'save-state-location': 'browser'
         };
     </script>
-    <!-- Carregador atualizado acompanhando a mesma CDN estável do unpkg -->
-    <script src="https://unpkg.comloader.js"></script>
+    
+    <!-- O script do loader fica obrigatoriamente por último -->
+    <script src="https://emulatorjs.orgloader.js"></script>
 
 </body>
 </html>
