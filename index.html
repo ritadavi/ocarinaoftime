@@ -34,7 +34,7 @@
             text-align: center;
             letter-spacing: 2px;
         }
-        /* Moldura estilo caixa de texto clássica baseada no exemplo */
+        /* Moldura estilo caixa de texto clássica */
         .game-wrapper {
             width: 800px;
             max-width: 100%;
@@ -86,24 +86,29 @@
         EJS_player = '#emulator';
         EJS_core = 'gba';
         EJS_gameName = 'Zelda';
-        EJS_color = '#006400'; /* Verde Zelda */
+        EJS_color = '#006400';
         EJS_startOnLoaded = false;
         
-        /* Corrigido: Links oficiais e estáveis da CDN do EmulatorJS */
-        EJS_pathtodata = 'https://cdn.emulatorjs.org/stable/data/';
-        EJS_gameUrl = 'zelda.gba'; /* Certifique-se de que este arquivo existe na mesma pasta */
+        // Caminho estável dos arquivos do sistema do emulador
+        EJS_pathtodata = 'https://emulatorjs.org';
+        
+        /* 
+           ATENÇÃO: Mude a URL abaixo para o endereço completo do seu jogo no GitHub.
+           Exemplo: 'https://github.io'
+           Lembre-se que maiúsculas e minúsculas importam (Zelda.GBA é diferente de zelda.gba).
+        */
+        EJS_gameUrl = window.location.href.substring(0, window.location.href.lastIndexOf('/')) + '/zelda.gba'; 
         
         /* Configurações extras de compatibilidade */
         EJS_gamepad = true;
         EJS_startOnTouch = true;
         EJS_AdPhIms = true;
-        EJS_cacheUrl = true;
+        EJS_cacheUrl = false; // Desativado para o GitHub não travar atualizações
         EJS_defaultSettings = {
             'save-state-location': 'browser'
         };
     </script>
-    <!-- Corrigido: Script do carregador com link correto -->
-    <script src="https://cdn.emulatorjs.org/stable/data/loader.js"></script>
+    <script src="https://emulatorjs.orgloader.js"></script>
 
 </body>
 </html>
