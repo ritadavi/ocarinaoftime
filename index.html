@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Zelda GBA Emulator</title>
-    <!-- Importação de fonte Pixel Art -->
     <link href="https://googleapis.com" rel="stylesheet">
     <style>
         * {
@@ -13,7 +12,6 @@
             padding: 0;
         }
         body {
-            /* Fundo animado temático em tons de verde/Zelda */
             background: linear-gradient(135deg, #0a2f1d 25%, #1b4d3e 50%, #0a2f1d 75%);
             background-size: 400% 400%;
             animation: triforceGlow 12s ease infinite;
@@ -28,19 +26,18 @@
         }
         h1 {
             font-size: 24px;
-            color: #ffd700; /* Dourado Triforce */
+            color: #ffd700;
             text-shadow: 3px 3px 0px #006400, 6px 6px 0px #000;
             margin-bottom: 25px;
             text-align: center;
             letter-spacing: 2px;
         }
-        /* Moldura estilo caixa de texto clássica */
         .game-wrapper {
             width: 800px;
             max-width: 100%;
             background-color: #000000;
             padding: 12px;
-            border: 6px solid #ffd700; /* Borda dourada */
+            border: 6px solid #ffd700;
             box-shadow: 0 0 0 6px #000000, 0 20px 40px rgba(0,0,0,0.8);
             image-rendering: pixelated;
         }
@@ -55,20 +52,14 @@
             width: 100%;
             height: 100%;
         }
-        /* Animação do fundo */
         @keyframes triforceGlow {
             0% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
             100% { background-position: 0% 50%; }
         }
-        /* Responsividade para telas menores */
         @media (max-width: 840px) {
-            #game-container {
-                height: 400px;
-            }
-            h1 {
-                font-size: 16px;
-            }
+            #game-container { height: 400px; }
+            h1 { font-size: 16px; }
         }
     </style>
 </head>
@@ -89,26 +80,22 @@
         EJS_color = '#006400';
         EJS_startOnLoaded = false;
         
-        // Caminho estável dos arquivos do sistema do emulador
-        EJS_pathtodata = 'https://emulatorjs.org';
+        // Servidor alternativo e mais estável do EmulatorJS para sites de terceiros
+        EJS_pathtodata = 'https://githack.com';
         
-        /* 
-           ATENÇÃO: Mude a URL abaixo para o endereço completo do seu jogo no GitHub.
-           Exemplo: 'https://github.io'
-           Lembre-se que maiúsculas e minúsculas importam (Zelda.GBA é diferente de zelda.gba).
-        */
-        EJS_gameUrl = window.location.href.substring(0, window.location.href.lastIndexOf('/')) + '/zelda.gba'; 
+        // Pega automaticamente o caminho do seu repositório no GitHub Pages
+        var currentDir = window.location.pathname.substring(0, window.location.pathname.lastIndexOf('/'));
+        EJS_gameUrl = window.location.origin + currentDir + '/zelda.gba';
         
-        /* Configurações extras de compatibilidade */
         EJS_gamepad = true;
         EJS_startOnTouch = true;
         EJS_AdPhIms = true;
-        EJS_cacheUrl = false; // Desativado para o GitHub não travar atualizações
+        EJS_cacheUrl = false;
         EJS_defaultSettings = {
             'save-state-location': 'browser'
         };
     </script>
-    <script src="https://emulatorjs.orgloader.js"></script>
+    <script src="https://githack.comloader.js"></script>
 
 </body>
 </html>
