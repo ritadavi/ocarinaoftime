@@ -2,8 +2,8 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Zelda GBA Emulator</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GBA Emulator</title>
     <style>
         body, html {
             margin: 0;
@@ -15,17 +15,12 @@
             justify-content: center;
             align-items: center;
             overflow: hidden;
-            touch-action: none; /* Melhora o toque no celular */
         }
         #game-container {
-            width: 100%;
-            height: 100%;
-            max-width: 800px; /* Tela um pouco maior para melhor visualização */
-            max-height: 600px;
-        }
-        #emulator {
-            width: 100%;
-            height: 100%;
+            width: 640px;
+            height: 480px;
+            max-width: 100%;
+            max-height: 100%;
         }
     </style>
 </head>
@@ -36,29 +31,18 @@
     </div>
 
     <script>
+        // Configurações do EmulatorJS
         EJS_player = '#emulator';
-        EJS_core = 'gba'; 
+        EJS_core = 'gba'; // Define o sistema como Game Boy Advance
+        
+        // Caminho dos arquivos do sistema hospedados na CDN oficial do EmulatorJS
         EJS_pathtodata = 'https://emulatorjs.org'; 
-        EJS_gameUrl = 'zelda.gba'; 
-
-        /* --- NOVAS CONFIGURAÇÕES ATIVADAS --- */
-
-        // 1. Suporte a Controles (Gamepad USB/Bluetooth)
-        EJS_gamepad = true;
-
-        // 2. Botões Virtuais para Celular/Touch
-        EJS_startOnTouch = true; // Inicia o jogo ao tocar na tela no celular
-        EJS_AdPhIms = true;      // Ativa os controles virtuais na tela
-
-        // 3. Imagem de Fundo na Tela de Carregamento
-        // Substitua pelo link da imagem que você quiser usar de fundo
-        EJS_backgroundImage = 'https://alphacoders.com'; 
-
-        // 4. Melhorias Extras de Conforto
-        EJS_color = '#006400';   // Muda a cor dos menus do emulador para verde (tema Zelda)
-        EJS_loadStateURL = '';   // Permite carregar saves externos se necessário
+        
+        // Caminho relativo para a sua ROM (mude para o nome exato do seu arquivo)
+        EJS_gameUrl = 'pokemon.gba'; 
     </script>
 
+    <!-- Carrega o script principal do emulador -->
     <script src="https://emulatorjs.orgloader.js"></script>
 
 </body>
