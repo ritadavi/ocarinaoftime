@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Zelda GBA Emulator</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            touch-action: none; /* Melhora o toque no celular */
+        }
+        #game-container {
+            width: 100%;
+            height: 100%;
+            max-width: 800px; /* Tela um pouco maior para melhor visualização */
+            max-height: 600px;
+        }
+        #emulator {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="game-container">
+        <div id="emulator"></div>
+    </div>
+
+    <script>
+        EJS_player = '#emulator';
+        EJS_core = 'gba'; 
+        EJS_pathtodata = 'https://emulatorjs.org'; 
+        EJS_gameUrl = 'zelda.gba'; 
+
+        /* --- NOVAS CONFIGURAÇÕES ATIVADAS --- */
+
+        // 1. Suporte a Controles (Gamepad USB/Bluetooth)
+        EJS_gamepad = true;
+
+        // 2. Botões Virtuais para Celular/Touch
+        EJS_startOnTouch = true; // Inicia o jogo ao tocar na tela no celular
+        EJS_AdPhIms = true;      // Ativa os controles virtuais na tela
+
+        // 3. Imagem de Fundo na Tela de Carregamento
+        // Substitua pelo link da imagem que você quiser usar de fundo
+        EJS_backgroundImage = 'https://alphacoders.com'; 
+
+        // 4. Melhorias Extras de Conforto
+        EJS_color = '#006400';   // Muda a cor dos menus do emulador para verde (tema Zelda)
+        EJS_loadStateURL = '';   // Permite carregar saves externos se necessário
+    </script>
+
+    <script src="https://emulatorjs.orgloader.js"></script>
+
+</body>
+</html>
