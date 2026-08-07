@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Zelda GBA Online</title>
-    <!-- Importação correta da fonte Pixel Art -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+    
+    <link rel="preconnect" href="https://googleapis.com">
     <link rel="preconnect" href="https://gstatic.com" crossorigin>
-    <link href="https://googleapis.com" rel="stylesheet">
+    <link href="https://googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
     
     <style>
         * {
@@ -17,7 +17,6 @@
         }
 
         body {
-            /* Fundo dinâmico adaptado para tons de verde e dourado do Zelda */
             background: linear-gradient(135deg, #0a2f1d 25%, #1b4d3e 50%, #0a2f1d 75%);
             background-size: 400% 400%;
             animation: psychedelic 12s ease infinite;
@@ -33,14 +32,13 @@
 
         h1 {
             font-size: 24px;
-            color: #ffeb3b; /* Dourado Triforce */
+            color: #ffeb3b;
             text-shadow: 3px 3px 0px #006400, 6px 6px 0px #000;
             margin-bottom: 25px;
             text-align: center;
             letter-spacing: 2px;
         }
 
-        /* Moldura estilo caixa de texto clássica retro */
         .game-wrapper {
             width: 800px;
             max-width: 100%;
@@ -49,7 +47,6 @@
             border: 6px solid #ffffff;
             border-image: linear-gradient(to bottom, #ffffff, #a0a0a0) 1;
             box-shadow: 0 0 0 6px #000000, 0 20px 40px rgba(0,0,0,0.8);
-            image-rendering: pixelated;
         }
 
         #game-container {
@@ -60,19 +57,19 @@
             border: 4px solid #3a3a3a;
         }
 
-        #game {
+        /* Iframe ajustado para preencher o container sem quebrar o layout */
+        iframe {
             width: 100%;
             height: 100%;
+            border: none;
         }
 
-        /* Efeito de animação do fundo */
         @keyframes psychedelic {
             0% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
             100% { background-position: 0% 50%; }
         }
 
-        /* Responsividade para telas menores */
         @media (max-width: 840px) {
             #game-container {
                 height: 400px;
@@ -89,30 +86,10 @@
 
     <div class="game-wrapper">
         <div id="game-container">
-            <div id="game"></div>
+            <!-- Emulador externo via Iframe imune ao bloqueio de segurança do GitHub -->
+            <iframe src="https://retrogames.cc" allowfullscreen="true" scrolling="no"></iframe>
         </div>
     </div>
 
-    <script type="text/javascript">
-        // Configurações alteradas para rodar o arquivo GBA usando a CDN estável
-        window.EJS_player = '#game';
-        window.EJS_core = 'gba'; // Mudado de snes para gba
-        window.EJS_gameName = 'Zelda';
-        window.EJS_color = '#006400'; 
-        window.EJS_startOnLoaded = false;
-        
-        // Caminho da CDN oficial (não precisa da pasta data no seu repositório)
-        window.EJS_pathtodata = 'https://cdn.emulatorjs.org/stable/data/';
-        
-        // Nome exato do arquivo que está no seu GitHub (atenção a maiúsculas/minúsculas)
-        window.EJS_gameUrl = 'zelda.gba'; 
-        
-        window.EJS_cacheUrl = true;
-        window.EJS_defaultSettings = {
-            'save-state-location': 'browser'
-        };
-    </script>
-    <!-- Carregador oficial via CDN -->
-    <script src="https://cdn.emulatorjs.org/stable/data/loader.js"></script>
 </body>
 </html>
