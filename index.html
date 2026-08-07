@@ -4,98 +4,101 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Zelda GBA Emulator</title>
-    <link href="https://googleapis.com" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
     <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
         }
-        body {
-            background: linear-gradient(135deg, #0a2f1d 25%, #1b4d3e 50%, #0a2f1d 75%);
-            background-size: 400% 400%;
-            animation: triforceGlow 12s ease infinite;
-            color: #ffffff;
-            font-family: 'Press Start 2P', monospace;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
-            padding: 20px;
+
+        body{
+            background:linear-gradient(135deg,#0a2f1d,#1b4d3e,#0a2f1d);
+            background-size:400% 400%;
+            animation:triforceGlow 12s infinite;
+            font-family:'Press Start 2P',monospace;
+            color:#fff;
+            display:flex;
+            flex-direction:column;
+            justify-content:center;
+            align-items:center;
+            min-height:100vh;
+            padding:20px;
         }
-        h1 {
-            font-size: 24px;
-            color: #ffd700;
-            text-shadow: 3px 3px 0px #006400, 6px 6px 0px #000;
-            margin-bottom: 25px;
-            text-align: center;
-            letter-spacing: 2px;
+
+        h1{
+            color:#FFD700;
+            margin-bottom:20px;
+            text-align:center;
+            text-shadow:3px 3px #006400;
         }
-        .game-wrapper {
-            width: 800px;
-            max-width: 100%;
-            background-color: #000000;
-            padding: 12px;
-            border: 6px solid #ffd700;
-            box-shadow: 0 0 0 6px #000000, 0 20px 40px rgba(0,0,0,0.8);
-            image-rendering: pixelated;
+
+        .game-wrapper{
+            width:800px;
+            max-width:100%;
+            background:#000;
+            border:6px solid #FFD700;
+            padding:10px;
         }
-        #game-container {
-            width: 100%;
-            height: 500px;
-            background-color: #000;
-            position: relative;
-            border: 4px solid #1b4d3e;
+
+        #game-container{
+            width:100%;
+            height:500px;
+            border:3px solid #1b4d3e;
         }
-        #emulator {
-            width: 100%;
-            height: 100%;
+
+        #emulator{
+            width:100%;
+            height:100%;
         }
-        @keyframes triforceGlow {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+
+        @keyframes triforceGlow{
+            0%{background-position:0% 50%;}
+            50%{background-position:100% 50%;}
+            100%{background-position:0% 50%;}
         }
-        @media (max-width: 840px) {
-            #game-container { height: 400px; }
-            h1 { font-size: 16px; }
+
+        @media(max-width:840px){
+            #game-container{
+                height:400px;
+            }
+
+            h1{
+                font-size:16px;
+            }
         }
     </style>
 </head>
+
 <body>
 
-    <h1>ZELDA GBA ONLINE</h1>
+<h1>ZELDA GBA ONLINE</h1>
 
-    <div class="game-wrapper">
-        <div id="game-container">
-            <div id="emulator"></div>
-        </div>
+<div class="game-wrapper">
+    <div id="game-container">
+        <div id="emulator"></div>
     </div>
+</div>
 
-    <script type="text/javascript">
-        EJS_player = '#emulator';
-        EJS_core = 'gba';
-        EJS_gameName = 'Zelda';
-        EJS_color = '#006400';
-        EJS_startOnLoaded = false;
-        
-        // Servidor alternativo e mais estável do EmulatorJS para sites de terceiros
-        EJS_pathtodata = 'https://githack.com';
-        
-        // Pega automaticamente o caminho do seu repositório no GitHub Pages
-        var currentDir = window.location.pathname.substring(0, window.location.pathname.lastIndexOf('/'));
-        EJS_gameUrl = window.location.origin + currentDir + '/zelda.gba';
-        
-        EJS_gamepad = true;
-        EJS_startOnTouch = true;
-        EJS_AdPhIms = true;
-        EJS_cacheUrl = false;
-        EJS_defaultSettings = {
-            'save-state-location': 'browser'
-        };
-    </script>
-    <script src="https://githack.comloader.js"></script>
+<script>
+EJS_player = "#emulator";
+EJS_core = "gba";
+EJS_gameName = "Zelda";
+EJS_color = "#006400";
+EJS_startOnLoaded = true;
+
+// Caminho da ROM
+EJS_gameUrl = "./zelda.gba";
+
+// Pasta "data" do EmulatorJS
+EJS_pathtodata = "./data/";
+</script>
+
+<script src="./data/loader.js"></script>
 
 </body>
 </html>
