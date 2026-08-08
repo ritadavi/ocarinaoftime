@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Zelda GBA Online</title>
     
-    <link rel="preconnect" href="https://googleapis.com">
-    <link rel="preconnect" href="https://gstatic.com" crossorigin>
-    <link href="https://googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
     
     <style>
         * {
@@ -57,10 +57,9 @@
             border: 4px solid #3a3a3a;
         }
 
-        iframe {
+        #game {
             width: 100%;
             height: 100%;
-            border: none;
         }
 
         @keyframes psychedelic {
@@ -85,10 +84,31 @@
 
     <div class="game-wrapper">
         <div id="game-container">
-            <!-- Iframe usando uma rota alternativa educacional estável e livre de bloqueios comuns -->
-            <iframe src="https://googleusercontent.com" allowfullscreen="true"></iframe>
+            <!-- Div para renderizar o emulador -->
+            <div id="game"></div>
         </div>
     </div>
+
+    <!-- Configurações do EmulatorJS para Game Boy Advance -->
+    <script type="text/javascript">
+        EJS_player = '#game';
+        EJS_core = 'gba'; // Núcleo do Game Boy Advance
+        EJS_gameName = 'Zelda GBA';
+        EJS_color = '#006400'; // Cor tema verde para combinar com o estilo de Zelda
+        EJS_startOnLoaded = false;
+        EJS_pathtodata = 'https://cdn.emulatorjs.org/stable/data/';
+        
+        // Nome do arquivo da sua ROM no repositório do GitHub
+        EJS_gameUrl = 'zelda.gba';
+
+        EJS_cacheUrl = true;
+        EJS_defaultSettings = {
+            'save-state-location': 'browser'
+        };
+    </script>
+
+    <!-- Script de carregamento oficial -->
+    <script src="https://cdn.emulatorjs.org/stable/data/loader.js"></script>
 
 </body>
 </html>
