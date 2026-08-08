@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zelda GBA Online</title>
+    <title>Zelda Minish Cap GBA Online</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -31,12 +31,13 @@
         }
 
         h1 {
-            font-size: 24px;
+            font-size: 20px;
             color: #ffeb3b;
             text-shadow: 3px 3px 0px #006400, 6px 6px 0px #000;
             margin-bottom: 25px;
             text-align: center;
-            letter-spacing: 2px;
+            letter-spacing: 1px;
+            line-height: 1.4;
         }
 
         .game-wrapper {
@@ -73,18 +74,17 @@
                 height: 400px;
             }
             h1 {
-                font-size: 16px;
+                font-size: 14px;
             }
         }
     </style>
 </head>
 <body>
 
-    <h1>ZELDA GBA ONLINE</h1>
+    <h1>THE MINISH CAP ONLINE</h1>
 
     <div class="game-wrapper">
         <div id="game-container">
-            <!-- Div para renderizar o emulador -->
             <div id="game"></div>
         </div>
     </div>
@@ -92,14 +92,14 @@
     <!-- Configurações do EmulatorJS para Game Boy Advance -->
     <script type="text/javascript">
         EJS_player = '#game';
-        EJS_core = 'gba'; // Núcleo do Game Boy Advance
-        EJS_gameName = 'Zelda GBA';
-        EJS_color = '#006400'; // Cor tema verde para combinar com o estilo de Zelda
+        EJS_core = 'gba';
+        EJS_gameName = 'Zelda The Minish Cap';
+        EJS_color = '#006400';
         EJS_startOnLoaded = false;
         EJS_pathtodata = 'https://cdn.emulatorjs.org/stable/data/';
         
-        // Nome do arquivo da sua ROM no repositório do GitHub
-        EJS_gameUrl = 'zelda.gba';
+        // encodeURIComponent garante que espaços e vírgulas no nome do arquivo sejam lidos corretamente pela Vercel/GitHub
+        EJS_gameUrl = encodeURIComponent('Legend of Zelda, The - The Minish Cap (USA).gba');
 
         EJS_cacheUrl = true;
         EJS_defaultSettings = {
@@ -107,7 +107,6 @@
         };
     </script>
 
-    <!-- Script de carregamento oficial -->
     <script src="https://cdn.emulatorjs.org/stable/data/loader.js"></script>
 
 </body>
